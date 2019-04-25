@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Movie Info</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Movie Library</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h3 class="text-center">Search for movie</h3>
+            <form id="searchForm">
+                <div class="row">
+                    <input type="text" class="form-control" id="searchText" placeholder="Search Movie" />
+                    <button class="btn btn-primary text-center col-md-2 col-md-offset-5 btn1">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="movies" class="well"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>    
+    <script src="main.js"></script>
+    </body>
+    </html>
