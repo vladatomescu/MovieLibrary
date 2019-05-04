@@ -3,35 +3,38 @@
 <head>
     <meta charset="utf-8">
     <title>Movie Info</title>
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:#41B3A3">
 
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">Movie Library</a>
+                <!-- <a class="navbar-brand" href="index.html">Movie Library</a> -->
+                <img src="logo.png" alt="my logo" width=60 height=40>
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="jumbotron">
-            <h3 class="text-center">Search for movie</h3>
+            <h1 class="text-center style-font" ><b>Search for movie</b></h1>
             <form id="searchForm">
-                <div class="row">
+                <div class="row form-group" >                
                     <input type="text" class="form-control" id="searchText" placeholder="Search Movie" />
-                    <button class="btn btn-primary text-center col-md-2 col-md-offset-5 btn1">Search</button>
                 </div>
+                    <button class="btn btn-primary text-center col-md-4 col-md-offset-4 btn-set">Search</button>                
             </form>
         </div>
     </div>
 
     <div class="container">
-        <div id="movies" class="well"></div>
+        <div id="movies" style="background-color:#41B3A3"></div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> 
     <script src="main.js"></script>
     </body>
     </html>

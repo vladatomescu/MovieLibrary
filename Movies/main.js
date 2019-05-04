@@ -17,13 +17,36 @@ axios.get('http://www.omdbapi.com/?s='+ searchText +'&apikey=4e9d3ee3')
         let output = '';
         $.each(movies, (index, movie) =>{
             output += `
-            <div class="col-md-3">
-                <div class="well text-center">
-                    <img src="${movie.Poster}">    
-                    <h5>${movie.Title}</h5>
+            <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4">
+                <!-- Card Flip -->
+                <div class="card-flip">
+                <div class="flip-card-inner">
+                    <div class="flip">
+                    <div class="front">
+                    <!-- front content -->
+                    <div class="card">
+                            
+                    <img src="${movie.Poster}" style="display: block;" >
+                    <div class="card-block">    
+                    </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                        <div class="card">
+                              <div class="card-block">                    
+                    <h3>${movie.Title}</h3>
                     <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary" href="#">Movie Details</a>
+                                        
+                    </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                </div>
+                <!-- End Card Flip -->
+            </div>    
             `;
         });        
         $('#movies').html(output);
@@ -46,31 +69,30 @@ function getMovie(){
         console.log(response);
         let movie = response.data;
         
-        let output=`
-        <div class="container-fluid">
+        let output=`        
             <div class="row">
                 <div class="col-md-4">
-                    <img src="${movie.Poster}" class="thumbnail"
-                    <div class="col-md-8">
-                        <h2>${movie.Title}</h2>
-                    </div>  
-                </div>      
-            <ul class="list-group">
-                <li class="list-group-item"><strong>Genre:</strong>${movie.Genre}</li>
-                <li class="list-group-item"><strong>Year:</strong>${movie.Year}</li>                
-                <li class="list-group-item"><strong>Actors:</strong>${movie.Actors}</li>        
-            </ul>
-            </div>
+                    <img src="${movie.Poster}" class="thumbnail">
+                </div>
+                <div class="col-md-4" >   
+                <h2 >${movie.Title}</h2> 
+                <ul class="list-group">
+                <li class="list-group-item" style="background-color:#E27D60"><strong>Genre: </strong>${movie.Genre}</li>
+                <li class="list-group-item" style="background-color:#E27D60"><strong>Year: </strong>${movie.Year}</li>                
+                <li class="list-group-item" style="background-color:#E27D60"><strong>Actors: </strong>${movie.Actors}</li>        
+                </ul>
+                </div>
+                <div class="col-md-8">
+                <h3>Plot</h3>
+                <h4>${movie.Plot}</h4>
+                <hr>
+                <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-warning">View IMDB</a>
+                <a href="index.html" class="btn btn-danger">Go back</a> 
+                </div>
         </div>
-        <div class="row"> 
-        <div class="well">        
-            <h3>Plot</h3>
-            ${movie.Plot}
-            <hr>
-            <a href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-warning">View IMDB</a>
-            <a href="index.html" class="btn btn-danger">Go back</a> 
-        </div>        
-        </div>`
+                         
+        
+        `
         $('#movies').html(output);
     })
     .catch((err)=>{
